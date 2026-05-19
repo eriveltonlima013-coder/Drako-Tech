@@ -437,6 +437,30 @@ body {
 .solutions {
   padding: 120px 0;
   position: relative;
+  background: var(--color-bg-base);
+  overflow: hidden;
+}
+
+.solutions::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 180, 204, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.solutions::after {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(122, 0, 204, 0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .section-label {
@@ -503,7 +527,7 @@ body {
 }
 
 .stat-item:hover::after {
-  background: var(--color-secondary);
+  background: var(--color-tertiary);
   opacity: 1;
 }
 
@@ -517,7 +541,7 @@ body {
   font-size: 3.2rem;
   font-weight: 700;
   line-height: 1;
-  color: var(--color-secondary); /* Azul ciano idêntico à referência */
+  color: var(--color-tertiary);
   letter-spacing: -0.02em;
 }
 
@@ -526,7 +550,7 @@ body {
   font-size: 3.2rem;
   font-weight: 300;
   line-height: 1;
-  color: var(--color-secondary);
+  color: var(--color-tertiary);
   opacity: 1;
   animation: cursor-blink 1s step-end infinite;
   margin-left: 2px;
@@ -546,10 +570,10 @@ body {
 
 /* Bento Cards Refinados - Visual Premium (Anti-IA) */
 .bento-card {
-  background: linear-gradient(135deg, rgba(20, 20, 28, 0.7) 0%, rgba(10, 10, 15, 0.9) 100%);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 24px;
   padding: 44px 40px;
   position: relative;
@@ -566,7 +590,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.02) 0%, transparent 60%);
+  background: radial-gradient(circle at 100% 100%, rgba(0, 0, 0, 0.02) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -582,7 +606,7 @@ body {
   inset: 0;
   border-radius: 24px;
   padding: 1.2px;
-  background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.08) 100%);
+  background: linear-gradient(135deg, transparent 40%, rgba(0, 0, 0, 0.04) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -594,19 +618,19 @@ body {
 
 /* Custom Gradiente Hover por cor - Brilho estrito */
 .bento-card.red-hover:hover::before {
-  background: linear-gradient(135deg, rgba(255, 26, 64, 0.45) 0%, transparent 50%, rgba(255, 26, 64, 0.45) 100%);
+  background: linear-gradient(135deg, rgba(255, 26, 64, 0.25) 0%, transparent 50%, rgba(255, 26, 64, 0.25) 100%);
 }
 .bento-card.cyan-hover:hover::before {
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.45) 0%, transparent 50%, rgba(0, 240, 255, 0.45) 100%);
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.25) 0%, transparent 50%, rgba(0, 240, 255, 0.25) 100%);
 }
 .bento-card.purple-hover:hover::before {
-  background: linear-gradient(135deg, rgba(157, 0, 255, 0.45) 0%, transparent 50%, rgba(157, 0, 255, 0.45) 100%);
+  background: linear-gradient(135deg, rgba(157, 0, 255, 0.25) 0%, transparent 50%, rgba(157, 0, 255, 0.25) 100%);
 }
 
 .bento-card:hover {
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(0, 0, 0, 0.1);
   transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 /* Ponto de status operacional e ativo */
@@ -708,6 +732,7 @@ body {
 }
 
 .bento-card h3 {
+  color: var(--color-text-primary);
   font-family: var(--font-heading);
   font-size: 1.4rem;
   font-weight: 600;
