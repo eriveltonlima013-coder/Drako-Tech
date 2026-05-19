@@ -103,10 +103,13 @@ body {
 }
 
 .logo-img {
-  height: 40px;
+  height: 60px;
   width: auto;
   display: block;
   object-fit: contain;
+  clip-path: inset(0% 0% 36% 0%);
+  margin-bottom: -22px;
+  mix-blend-mode: multiply;
   transition: transform 0.3s ease;
 }
 
