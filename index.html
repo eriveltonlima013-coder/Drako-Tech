@@ -440,7 +440,20 @@
               <div><span class="prompt">$</span> <span class="output">drako deploy --production</span></div>
               <div><span class="success">✓</span> <span class="output">Infraestrutura em produção em 12s · Lighthouse:
                   98</span></div>
-              <div><span class="prompt">$</span> <span class="cursor-blink"></span></div>
+              <form id="terminal-subscribe-form" class="terminal-form" autocomplete="off">
+                <span class="prompt">$</span>
+                <span class="output">drako subscribe --email</span>
+                <div class="terminal-input-wrapper">
+                  <input type="email" id="terminal-email" class="terminal-input" placeholder="digite seu e-mail..." required>
+                  <button type="submit" class="terminal-submit-btn" aria-label="Inscrever-se">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="22" y1="2" x2="11" y2="13"></line>
+                      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                  </button>
+                </div>
+              </form>
+              <div id="terminal-logs"></div>
             </div>
           </div>
         </div>

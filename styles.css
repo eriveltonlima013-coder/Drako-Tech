@@ -1058,3 +1058,79 @@ body {
   .section-title { font-size: 1.75rem; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
 }
+
+/* === TERMINAL FORM & INTERACTION === */
+.terminal-form {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.terminal-input-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 180px;
+  position: relative;
+}
+
+.terminal-input {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #F8FAFC !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.8rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100%;
+  caret-color: #00F0FF;
+}
+
+.terminal-input::placeholder {
+  color: #64748B;
+  opacity: 0.85;
+}
+
+.terminal-submit-btn {
+  background: transparent;
+  border: none;
+  padding: 2px 6px;
+  color: #00F0FF;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.terminal-submit-btn:hover {
+  color: #10B981;
+  transform: scale(1.1);
+}
+
+.terminal-submit-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.5;
+}
+
+.terminal-feedback-line {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.8;
+  margin-top: 4px;
+}
+
+.terminal-feedback-line .success-symbol {
+  color: #10B981;
+  margin-right: 8px;
+}
+
+.terminal-feedback-line .success-text {
+  color: #94A3B8;
+}
+

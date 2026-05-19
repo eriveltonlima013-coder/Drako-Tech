@@ -104,4 +104,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // === Terminal Inscription / Lead Capture Logic ===
+  const terminalForm = document.getElementById('terminal-subscribe-form');
+  const terminalEmail = document.getElementById('terminal-email');
+  const terminalLogs = document.getElementById('terminal-logs');
+
+  if (terminalForm && terminalEmail && terminalLogs) {
+    terminalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = terminalEmail.value.trim();
+      if (!email) return;
+
+      // 1. Hide/Disable the current form inputs so the user can't submit twice
+      terminalEmail.disabled = true;
+      const submitBtn = terminalForm.querySelector('.terminal-submit-btn');
+      if (submitBtn) submitBtn.disabled = true;
+
+      // 2. Simulate terminal output logic
+      // First, render a new line showing the submitted command
+      const cmdLine = document.createElement('div');
+      cmdLine.innerHTML = `<span class="prompt">$</span> <span class="output">drako subscribe --email ${email}</span>`;
+      
+      // Render a processing message with loading styling
+      const processingLine = document.createElement('div');
+      processingLine.innerHTML = `<span class="prompt">$</span> <span class="output">processando inscrição e estabelecendo conexão segura...</span>`;
+      
+      // Append the command line to the logs and hide the current interactive form
+      terminalForm.style.display = 'none';
+      terminalLogs.appendChild(cmdLine);
+      terminalLogs.appendChild(processingLine);
+
+      // Simulate a short realistic CLI delay (e.g. 1000ms)
+      setTimeout(() => {
+        // Remove processing line
+        processingLine.remove();
+
+        // Create success log lines
+        const successLine1 = document.createElement('div');
+        successLine1.className = 'terminal-feedback-line';
+        successLine1.innerHTML = `<span class="success-symbol">✓</span><span class="success-text">Inscrição realizada com sucesso!</span>`;
+
+        const successLine2 = document.createElement('div');
+        successLine2.className = 'terminal-feedback-line';
+        successLine2.innerHTML = `<span class="success-symbol">✓</span><span class="success-text">E-mail salvo na lista de espera Drako Tech. Bem-vindo à elite.</span>`;
+
+        // Create new interactive prompt line at the end to keep the terminal "alive"
+        const nextPromptLine = document.createElement('div');
+        nextPromptLine.innerHTML = `<span class="prompt">$</span> <span class="cursor-blink"></span>`;
+
+        terminalLogs.appendChild(successLine1);
+        terminalLogs.appendChild(successLine2);
+        terminalLogs.appendChild(nextPromptLine);
+      }, 1000);
+    });
+  }
+
 });
