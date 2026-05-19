@@ -6,8 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // === Nav Scroll Effect ===
   const nav = document.querySelector('.nav-wrapper');
+  let lastScrollY = window.scrollY;
+
   window.addEventListener('scroll', () => {
+    if (window.scrollY > lastScrollY && window.scrollY > 80) {
+      nav.classList.add('nav-hidden');
+    } else {
+      nav.classList.remove('nav-hidden');
+    }
     nav.classList.toggle('scrolled', window.scrollY > 40);
+    lastScrollY = window.scrollY;
   });
 
   // === Mobile Menu ===

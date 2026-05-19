@@ -8,24 +8,47 @@
   <meta name="theme-color" content="#06080F">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      theme: {
+        extend: {
+          animation: {
+            'scroll-left': 'scroll-left 36s linear infinite',
+          },
+          keyframes: {
+            'scroll-left': {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
 </head>
 <body>
 
   <!-- ========== NAVIGATION ========== -->
   <nav class="nav-wrapper" role="navigation" aria-label="Navegação principal">
     <div class="nav-inner">
-      <a href="#" class="nav-logo" aria-label="Drako Tech - Início">
-        <img src="Imagens da Drako tech/Logo.jpeg" alt="Drako Tech Logo" class="logo-img">
-      </a>
+      <div class="nav-logo-container">
+        <a href="#" class="nav-logo" aria-label="Drako Tech - Início">
+          <img src="Imagens da Drako tech/Logo.jpeg" alt="Drako Tech Logo" class="logo-img">
+        </a>
+      </div>
       <ul class="nav-links">
         <li><a href="#solutions">Soluções</a></li>
-        <li><a href="#ai-powered">Diferencial</a></li>
         <li><a href="#contact">Contato</a></li>
-        <li><a href="#contact" class="nav-cta">Iniciar Projeto</a></li>
+        <li><a href="#ai-powered">Diferencial</a></li>
       </ul>
-      <button class="mobile-toggle" aria-label="Abrir menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-cta-container">
+        <a href="#contact" class="nav-cta">Iniciar Projeto</a>
+        <button class="mobile-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -99,34 +122,34 @@
   </section>
 
   <!-- ========== TECH STRIP ========== -->
-  <section class="tech-strip" aria-label="Tecnologias utilizadas">
-    <p class="tech-strip-label">Stack de engenharia que impulsiona nossos projetos</p>
-    <div class="tech-scroll" aria-hidden="true">
-      <div class="tech-item"><span class="tech-icon">⚡</span> Next.js</div>
-      <div class="tech-item"><span class="tech-icon">🔷</span> TypeScript</div>
-      <div class="tech-item"><span class="tech-icon">🎨</span> Tailwind CSS</div>
-      <div class="tech-item"><span class="tech-icon">🤖</span> Claude Code</div>
-      <div class="tech-item"><span class="tech-icon">⚛️</span> React 19</div>
-      <div class="tech-item"><span class="tech-icon">🗄️</span> PostgreSQL</div>
-      <div class="tech-item"><span class="tech-icon">🔐</span> Auth.js</div>
-      <div class="tech-item"><span class="tech-icon">📊</span> Vercel Analytics</div>
-      <div class="tech-item"><span class="tech-icon">🧠</span> OpenAI API</div>
-      <div class="tech-item"><span class="tech-icon">🔄</span> n8n Automations</div>
-      <div class="tech-item"><span class="tech-icon">🚀</span> Framer Motion</div>
-      <div class="tech-item"><span class="tech-icon">📦</span> Prisma ORM</div>
+  <section class="tech-strip py-16 border-y border-[var(--color-border)] bg-[var(--color-bg-surface)] overflow-hidden" aria-label="Tecnologias utilizadas">
+    <p class="text-center font-mono text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-[0.15em] mb-8">Stack de engenharia que impulsiona nossos projetos</p>
+    <div class="flex gap-[57px] w-max animate-scroll-left hover:[animation-play-state:paused]" aria-hidden="true">
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">⚡</span> Next.js</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🔷</span> TypeScript</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🎨</span> Tailwind CSS</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🤖</span> Claude Code</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">⚛️</span> React 19</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🗄️</span> PostgreSQL</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🔐</span> Auth.js</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">📊</span> Vercel Analytics</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🧠</span> OpenAI API</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🔄</span> n8n Automations</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🚀</span> Framer Motion</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">📦</span> Prisma ORM</div>
       <!-- Duplicated for seamless scroll -->
-      <div class="tech-item"><span class="tech-icon">⚡</span> Next.js</div>
-      <div class="tech-item"><span class="tech-icon">🔷</span> TypeScript</div>
-      <div class="tech-item"><span class="tech-icon">🎨</span> Tailwind CSS</div>
-      <div class="tech-item"><span class="tech-icon">🤖</span> Claude Code</div>
-      <div class="tech-item"><span class="tech-icon">⚛️</span> React 19</div>
-      <div class="tech-item"><span class="tech-icon">🗄️</span> PostgreSQL</div>
-      <div class="tech-item"><span class="tech-icon">🔐</span> Auth.js</div>
-      <div class="tech-item"><span class="tech-icon">📊</span> Vercel Analytics</div>
-      <div class="tech-item"><span class="tech-icon">🧠</span> OpenAI API</div>
-      <div class="tech-item"><span class="tech-icon">🔄</span> n8n Automations</div>
-      <div class="tech-item"><span class="tech-icon">🚀</span> Framer Motion</div>
-      <div class="tech-item"><span class="tech-icon">📦</span> Prisma ORM</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">⚡</span> Next.js</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🔷</span> TypeScript</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🎨</span> Tailwind CSS</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🤖</span> Claude Code</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">⚛️</span> React 19</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🗄️</span> PostgreSQL</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🔐</span> Auth.js</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">📊</span> Vercel Analytics</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🧠</span> OpenAI API</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🔄</span> n8n Automations</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">🚀</span> Framer Motion</div>
+      <div class="flex items-center gap-[12px] font-heading text-[1.14rem] font-medium text-[var(--color-text-muted)] whitespace-nowrap transition-colors duration-300 hover:text-[var(--color-text-primary)]"><span class="flex items-center justify-center w-[28.8px] h-[28.8px] text-[1.2rem]">📦</span> Prisma ORM</div>
     </div>
   </section>
 
