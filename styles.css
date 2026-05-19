@@ -802,6 +802,16 @@ body {
   transform: translateY(0);
 }
 
+/* === ACTIVE LINKS === */
+.nav-links a.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.mobile-menu a.active {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
 /* === MOBILE === */
 .mobile-menu {
   display: none;
