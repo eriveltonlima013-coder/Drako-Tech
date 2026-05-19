@@ -468,9 +468,8 @@ body {
 
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
 .bento-card {
@@ -499,15 +498,44 @@ body {
   transition: opacity 0.4s ease;
 }
 
+/* Custom Gradiente Hover por cor */
+.bento-card.red-hover::before {
+  background: linear-gradient(135deg, transparent 40%, rgba(255, 26, 64, 0.25) 100%);
+}
+.bento-card.cyan-hover::before {
+  background: linear-gradient(135deg, transparent 40%, rgba(0, 240, 255, 0.25) 100%);
+}
+.bento-card.purple-hover::before {
+  background: linear-gradient(135deg, transparent 40%, rgba(157, 0, 255, 0.25) 100%);
+}
+
 .bento-card:hover::before { opacity: 1; }
 
 .bento-card:hover {
   border-color: var(--color-border-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.02);
 }
 
-.bento-card.span-2 { grid-column: span 2; }
+.bento-card-number {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-family: var(--font-mono);
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-text-primary);
+  opacity: 0.03;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.bento-card:hover .bento-card-number {
+  opacity: 0.07;
+  transform: translateY(-2px) scale(1.05);
+}
 
 .bento-icon {
   width: 48px;
