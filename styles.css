@@ -64,10 +64,7 @@ body {
   right: 0;
   z-index: 100;
   padding: 16px 24px;
-  background: rgba(255, 255, 255, 0.90);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  background: transparent;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
 }
 
@@ -76,8 +73,9 @@ body {
 }
 
 .nav-wrapper.scrolled {
-  background: rgba(255, 255, 255, 0.90);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  background: transparent;
+  box-shadow: none;
+  border-bottom: none;
 }
 
 .nav-inner {
@@ -131,14 +129,17 @@ body {
 .nav-links a {
   font-family: var(--font-body);
   font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-text-secondary);
+  font-weight: 600;
+  color: var(--color-text-primary);
   text-decoration: none;
   transition: color 0.3s ease;
   letter-spacing: 0.02em;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.95), 0 0 4px rgba(255, 255, 255, 0.8);
 }
 
-.nav-links a:hover { color: var(--color-text-primary); }
+.nav-links a:hover {
+  color: var(--color-primary);
+}
 
 .nav-cta-container {
   justify-self: end;
@@ -415,9 +416,9 @@ body {
 
 .float-card.card-bottom {
   bottom: 20px;
-  left: -30px;
-  color: #10B981;
-  border-color: rgba(16, 185, 129, 0.15);
+  right: -30px;
+  color: var(--color-secondary);
+  border-color: rgba(0, 240, 255, 0.15);
   animation-delay: -2s;
 }
 
