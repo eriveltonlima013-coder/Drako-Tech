@@ -11,24 +11,30 @@
 </head>
 <body>
 
-  <!-- ========== NAVIGATION ========== -->
-  <nav class="nav-wrapper scrolled" role="navigation" aria-label="Navegação principal">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="Drako Tech - Início">
-        <img src="Imagens da Drako tech/Logo.jpeg" alt="Drako Tech Logo" class="logo-img">
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html#solutions">Soluções</a></li>
-        <li><a href="index.html#ai-powered">Diferencial</a></li>
-        <li><a href="sobre.html" class="active">Sobre nós</a></li>
-        <li><a href="index.html#contact">Contato</a></li>
-        <li><a href="index.html#contact" class="nav-cta">Iniciar Projeto</a></li>
-      </ul>
-      <button class="mobile-toggle" aria-label="Abrir menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+  <!-- ========== HEADER & NAVIGATION ========== -->
+  <header class="site-header">
+    <nav class="nav-wrapper scrolled" role="navigation" aria-label="Navegação principal">
+      <div class="nav-inner">
+        <div class="nav-logo-container">
+          <a href="index.html" class="nav-logo" aria-label="Drako Tech - Início">
+            <img src="Imagens da Drako tech/Logo.jpeg" alt="Drako Tech Logo" class="logo-img">
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html#solutions" class="text-[var(--color-text-primary)] font-semibold hover:text-[var(--color-primary)] transition-colors duration-300">Soluções</a></li>
+          <li><a href="index.html#ai-powered" class="text-[var(--color-text-primary)] font-semibold hover:text-[var(--color-primary)] transition-colors duration-300">Diferencial</a></li>
+          <li><a href="sobre.html" class="text-[var(--color-text-primary)] font-semibold hover:text-[var(--color-primary)] transition-colors duration-300 active">Sobre nós</a></li>
+          <li><a href="index.html#contact" class="text-[var(--color-text-primary)] font-semibold hover:text-[var(--color-primary)] transition-colors duration-300">Contato</a></li>
+        </ul>
+        <div class="nav-cta-container">
+          <a href="index.html#contact" class="nav-cta shadow-md hover:shadow-lg transition-shadow duration-300">Iniciar Projeto</a>
+          <button class="mobile-toggle" aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" role="dialog" aria-label="Menu mobile">
@@ -39,7 +45,10 @@
     <a href="index.html#contact" class="nav-cta" style="margin-top:16px;">Iniciar Projeto</a>
   </div>
 
-  <!-- ========== ABOUT HERO SECTION ========== -->
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="main-content">
+
+    <!-- ========== ABOUT HERO SECTION ========== -->
   <section class="about-hero" id="about-hero" style="padding: 160px 0 80px; min-height: auto; position: relative; overflow: hidden;">
     <div style="content: ''; position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(0, 240, 255, 0.04) 0%, transparent 70%); pointer-events: none;"></div>
     <div class="section-container">
@@ -131,31 +140,37 @@
       <div class="cta-actions reveal">
         <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20um%20diagnóstico%20com%20a%20Drako%20Tech." class="btn-primary" target="_blank" rel="noopener noreferrer">
           Conversar no WhatsApp
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
   </section>
 
+  </main>
+
   <!-- ========== FOOTER ========== -->
   <footer class="footer" role="contentinfo">
     <div class="section-container">
       <div class="footer-grid">
+
         <div class="footer-brand">
           <a href="index.html" class="nav-logo">
-            <img src="Imagens da Drako tech/Logo.jpeg" alt="Drako Tech Logo" class="logo-img">
+            <span class="logo-dot" aria-hidden="true"></span>
+            DRAKO TECH
           </a>
-          <p>Engenharia digital de alta conversão impulsionada por inteligência artificial. São Paulo, Brasil.</p>
+          <p>Criamos estruturas digitais feitas para vender, escalar e fortalecer marcas.</p>
         </div>
+
         <div>
           <h4>Soluções</h4>
           <ul>
-            <li><a href="index.html#solutions">Automação & IA</a></li>
+            <li><a href="index.html#solutions">Automação Inteligente</a></li>
             <li><a href="index.html#solutions">SaaS & Apps</a></li>
             <li><a href="index.html#solutions">Sites de Conversão</a></li>
             <li><a href="index.html#solutions">Rebranding</a></li>
           </ul>
         </div>
+
         <div>
           <h4>Empresa</h4>
           <ul>
@@ -164,15 +179,18 @@
             <li><a href="sobre.html">Sobre nós</a></li>
           </ul>
         </div>
-        <div>
-          <h4>Conecte-se</h4>
-          <ul>
-            <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="#" target="_blank" rel="noopener">GitHub</a></li>
+
+        <div class="flex flex-col items-center text-center md:-ml-8 lg:-ml-12">
+          <h4 class="text-center">Redes sociais</h4>
+          <ul class="flex flex-row items-center justify-center gap-6 !m-0 !p-0">
+            <li class="!mb-0"><a href="#" target="_blank" rel="noopener" class="transition-colors hover:text-[var(--color-primary)]">LinkedIn</a></li>
+            <li class="!mb-0"><a href="#" target="_blank" rel="noopener" class="transition-colors hover:text-[var(--color-primary)]">Instagram</a></li>
+            <li class="!mb-0"><a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20um%20diagnóstico%20com%20a%20Drako%20Tech." target="_blank" rel="noopener" class="transition-colors hover:text-[var(--color-primary)]">WhatsApp</a></li>
           </ul>
         </div>
+
       </div>
+
       <div class="footer-bottom">
         <span>© 2026 Drako Tech. Todos os direitos reservados.</span>
       </div>

@@ -7,15 +7,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Nav Scroll Effect ===
   const nav = document.querySelector('.nav-wrapper');
   let lastScrollY = window.scrollY;
+  let ticking = false;
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > lastScrollY && window.scrollY > 80) {
-      nav.classList.add('nav-hidden');
-    } else {
-      nav.classList.remove('nav-hidden');
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+          nav.classList.add('nav-hidden');
+        } else {
+          nav.classList.remove('nav-hidden');
+        }
+        nav.classList.toggle('scrolled', currentScrollY > 40);
+        lastScrollY = currentScrollY;
+        ticking = false;
+      });
+      ticking = true;
     }
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-    lastScrollY = window.scrollY;
   });
 
   // === Mobile Menu ===
@@ -23,12 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.querySelector('.mobile-menu');
   if (toggle && mobileMenu) {
     toggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      const isActive = mobileMenu.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      document.body.style.overflow = isActive ? 'hidden' : '';
     });
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       });
     });
@@ -52,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const el = entry.target;
-        const target = parseInt(el.dataset.count);
+        const target = parseInt(el.dataset.count, 10);
         const suffix = el.dataset.suffix || '';
         const duration = 1800;
         const start = performance.now();
@@ -84,8 +94,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Smooth Scroll for Anchors ===
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
+      const href = anchor.getAttribute('href');
+      if (href === '#') return;
       e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute('href'));
+      const target = document.querySelector(href);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
