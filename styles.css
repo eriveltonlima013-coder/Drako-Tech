@@ -308,21 +308,21 @@ body {
   padding: 14px 32px;
   font-family: var(--font-body);
   font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--color-secondary);
-  background: transparent;
-  border: 1px solid rgba(0, 240, 255, 0.3);
+  font-weight: 700;
+  color: #FFFFFF;
+  background: var(--color-secondary);
+  border: none;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
 }
 
 .btn-secondary:hover {
-  background: rgba(0, 240, 255, 0.06);
-  border-color: var(--color-secondary);
+  background: #00D2E0;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 240, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 240, 255, 0.4);
 }
 
 /* Hero Visual */
@@ -507,7 +507,9 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
   margin: 56px 0 72px 0;
-  padding-bottom: 24px;
+  padding: 48px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .stat-item {
@@ -515,25 +517,6 @@ body {
   flex-direction: column;
   gap: 12px;
   position: relative;
-  padding-bottom: 20px;
-}
-
-/* Linha horizontal sutil e escura exatamente igual à referência do usuário */
-.stat-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--color-border);
-  opacity: 0.8;
-  transition: all 0.4s ease;
-}
-
-.stat-item:hover::after {
-  background: var(--color-tertiary);
-  opacity: 1;
 }
 
 .stat-number-wrapper {
