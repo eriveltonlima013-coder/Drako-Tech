@@ -9,6 +9,10 @@
   --color-primary: #FF1A40;
   --color-secondary: #00B4CC;
   --color-tertiary: #7A00CC;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #20BA59;
+  --grad-whatsapp: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
+  --grad-whatsapp-hover: linear-gradient(135deg, #2cf477 0%, #20c15d 100%);
   --color-bg-base: #FFFFFF;
   --color-bg-surface: #F8FAFC;
   --color-bg-elevated: #F1F5F9;
@@ -33,6 +37,27 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Silhueta de Fundo Premium da Logo (Efeito de Fundo Ausente) */
+body::before {
+  content: '';
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85vw;
+  height: 85vh;
+  max-width: 900px;
+  max-height: 900px;
+  background-image: url('Logo/LOGO SEM FUNDO V3.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.038; /* Visibilidade de fundo ajustada em +8% para 0.038, mantendo o design premium e legibilidade */
+  pointer-events: none;
+  z-index: -1;
+  filter: grayscale(100%) contrast(1.2);
 }
 
 /* === UTILITY === */
@@ -103,14 +128,12 @@ body {
 }
 
 .logo-img {
-  height: 60px;
+  height: 58px;
   width: auto;
   display: block;
   object-fit: contain;
-  clip-path: inset(0% 0% 36% 0%);
-  margin-bottom: -22px;
-  mix-blend-mode: multiply;
-  transition: transform 0.3s ease;
+  mix-blend-mode: multiply; /* Remove qualquer fundo branco residual da imagem sobre o fundo claro da navbar */
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .logo-img:hover {
@@ -158,17 +181,21 @@ body {
   font-size: 0.875rem;
   font-weight: 600;
   color: #FFFFFF !important;
-  background: var(--color-primary);
+  background: var(--grad-whatsapp);
   border: none;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .nav-cta:hover {
+  background: var(--grad-whatsapp-hover);
   transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(255, 26, 64, 0.4);
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
   color: #FFFFFF !important;
 }
 
@@ -288,7 +315,7 @@ body {
   font-size: 0.95rem;
   font-weight: 600;
   color: #FFFFFF;
-  background: var(--color-primary);
+  background: var(--grad-whatsapp);
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -297,8 +324,9 @@ body {
 }
 
 .btn-primary:hover {
+  background: var(--grad-whatsapp-hover);
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 30px rgba(255, 26, 64, 0.35);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.35);
 }
 
 .btn-secondary {
